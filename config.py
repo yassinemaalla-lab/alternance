@@ -35,3 +35,7 @@ AGE_MAX_JOURS = 3
 # --- Informations personnelles (pour toi, pas utilisées pour filtrer) ---
 RYTHME = ""      # exemple : "1 semaine école / 3 semaines entreprise"
 DEBUT = ""       # exemple : "septembre 2027"
+# --- Recherche par l'API La Bonne Alternance ---
+CODES_ROME = ["M1805"]          # études et développement informatique
+LATITUDE = 43.7102              # exemple : Nice
+LONGITUDE = 7.2620
