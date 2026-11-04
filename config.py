@@ -1,20 +1,34 @@
-# config.py : critères de recherche d'alternance
-# Tout est écrit en minuscules : le scraper comparera en minuscules aussi.
+# Critères de recherche d'alternance informatique, autour de Nice.
+# Les comparaisons de texte se font en minuscules.
 
-# --- Critères de recherche (utilisés pour interroger les sources) ---
-INTITULES = [
-    "développeur web",
-    "développeur python",
-    "développeur full stack",
-    "intégrateur web",
+# Département conservé quand on importe le fichier national.
+DEPARTEMENTS = ("06",)
+
+ZONES = {
+    "Nice": (43.7102, 7.2620),
+    "Sophia Antipolis": (43.6163, 7.0551),
+    "Cannes": (43.5528, 7.0174),
+}
+RAYON_KM = 50
+
+# Code ROME confirmé : études et développement informatique.
+CODES_ROME = ["M1805"]
+
+# Recherche de recruteurs, élargie puis resserrée par le code NAF.
+CODES_ROME_RECRUTEURS = ["M1805", "M1801", "M1818", "M1830", "M1856"]
+
+# Programmation, édition de logiciels, traitement de données, portails.
+NAF_OK = ("62.", "58.29", "63.11", "63.12")
+
+# Un de ces mots doit apparaître dans le titre.
+MOTS_CLES_TITRE = [
+    "développeur", "developpeur", "informatique", "full stack", "fullstack",
+    "devops", "cyber", "administrateur système", "administrateur réseau",
+    "technicien support", "support informatique", "intégrateur web",
+    "data analyst", "data scientist", "ingénieur logiciel",
 ]
 
-VILLES = ["nice", "cannes"]
-RAYON_KM = 30
-TELETRAVAIL = True
-
-# --- Filtres appliqués sur les offres récupérées ---
-# Une offre est écartée si son titre ou sa description contient un de ces mots.
+# L'offre est écartée si le titre ou la description contient un de ces mots.
 MOTS_EXCLUS = [
     "senior",
     "confirmé",
@@ -26,16 +40,12 @@ MOTS_EXCLUS = [
     "master",
 ]
 
-# Mots qui rendent une offre plus intéressante (utilisés plus tard pour un score).
+# Sert plus tard à classer les offres.
 MOTS_BONUS = ["python", "javascript", "html", "css", "git"]
 
-# Une offre plus vieille que ça (en jours) n'est pas notifiée.
+# Au-delà de cet âge, une offre n'est plus proposée à la notification.
 AGE_MAX_JOURS = 3
 
-# --- Informations personnelles (pour toi, pas utilisées pour filtrer) ---
-RYTHME = ""      # exemple : "1 semaine école / 3 semaines entreprise"
-DEBUT = ""       # exemple : "septembre 2027"
-# --- Recherche par l'API La Bonne Alternance ---
-CODES_ROME = ["M1805"]          # études et développement informatique
-LATITUDE = 43.7102              # exemple : Nice
-LONGITUDE = 7.2620
+# Repères personnels, non utilisés pour filtrer.
+RYTHME = ""  # exemple : "1 semaine école / 3 semaines entreprise"
+DEBUT = ""   # exemple : "septembre 2027"
